@@ -23,8 +23,8 @@ import com.google.zxing.integration.android.IntentResult;
 public class MainActivity extends Activity implements OnClickListener {
 
 	//UI instance variables
-	private Button scanBtn;
-	private TextView formatTxt, contentTxt;
+	private Button scanBtn1,scanBtn2;
+	private TextView formatTxt1,formatTxt2, contentTxt1,contentTxt2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +32,16 @@ public class MainActivity extends Activity implements OnClickListener {
 		setContentView(R.layout.activity_main);
 
 		//instantiate UI items
-		scanBtn = (Button)findViewById(R.id.scan_button);
-		formatTxt = (TextView)findViewById(R.id.scan_format);
-		contentTxt = (TextView)findViewById(R.id.scan_content);
+		scanBtn1 = (Button)findViewById(R.id.scan_button);
+		scanBtn2 = (Button)findViewById(R.id.scan_button_prod2);
+		formatTxt1 = (TextView)findViewById(R.id.scan_format);
+		contentTxt1 = (TextView)findViewById(R.id.scan_content);
+		formatTxt2 = (TextView)findViewById(R.id.scan_format_prod2);
+		contentTxt2 = (TextView)findViewById(R.id.scan_content_prod2);
 
 		//listen for clicks
-		scanBtn.setOnClickListener(this);
+		scanBtn1.setOnClickListener(this);
+		//scanBtn2.setOnClickListener(this);
 	}
 
 	public void onClick(View v){
@@ -52,16 +56,18 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		//retrieve result of scanning - instantiate ZXing object
-		IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+	IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 		//check we have a valid result
 		if (scanningResult != null) {
 			//get content from Intent Result
+			
 			String scanContent = scanningResult.getContents();
 			//get format name of data scanned
 			String scanFormat = scanningResult.getFormatName();
 			//output to UI
-			formatTxt.setText("FORMAT: "+scanFormat);
-			contentTxt.setText("CONTENT: "+scanContent);
+			formatTxt1.setText("FORMAT: "+scanFormat);
+			contentTxt1.setText("CONTENT: "+scanContent);
+			
 		}
 		else{
 			//invalid scan data or scan canceled

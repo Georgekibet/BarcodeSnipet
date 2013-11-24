@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="scan" />
+        android:text="scan 1st product" />
 
     <TextView
         android:id="@+id/scan_format"
@@ -29,6 +29,30 @@
         android:clickable="true"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/scan_format" />
+    
+    <TextView
+        android:id="@+id/scan_format_prod2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/scan_content" />
 
+    <TextView
+        android:id="@+id/scan_content_prod2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/scan_format_prod2" />
+
+    <Button
+        android:id="@+id/scan_button_prod2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/scan_button"
+        android:layout_below="@+id/scan_content"
+        android:layout_marginTop="24dp"
+        android:text="scan 2nd product" />
 
 </RelativeLayout>
